@@ -1,0 +1,5 @@
+useDynLib(gammSlice,  .registration = TRUE, .fixes = "F_")
+
+export(gSlc,plot.gSlc,summMCMC,summary.gSlc,gSlc.control,gSlcSim,gSlcMCMC)
+
+import(KernSmooth, lattice, mgcv)

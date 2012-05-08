@@ -10,10 +10,6 @@
 
 gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control())
 {
-   # Call up KernSmooth and lattice
-   
-   library(KernSmooth)
-   library(lattice)
    
    nIter <- control$nIter
    nBurnin <- control$nBurnin
@@ -316,16 +312,13 @@ gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control
    if (method == "NR") method <- "nr"
    if (method == "stepout") method <- "sp"
 
-   if (random.factor == T ) {rand <- "rd"} 
-   if (random.factor == F ) {rand <- ""}
+   if (random.factor == T ) {rand <- 1} 
+   if (random.factor == F ) {rand <- 0}
 
-   if (family == "binomial") dist <- "b"
-   if (family == "poisson")  dist <- "p"
+   if (family == "binomial") {dist <- 0}
+   if (family == "poisson")  {dist <- 1}
 
-   array.names.routine <- c("sl",dist,method,rand)
-   names.routine <- paste(array.names.routine,collapse = "")
-
-   library.dynam(names.routine, package = "gammSlice",lib.loc = NULL)
+   routindex <- as.integer(2*dist + rand)
 
    blankPlot()
    text(0.5,0.7,"Initialisation completed.",cex=2,col="green3")
@@ -335,8 +328,8 @@ gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control
    priparaB <- pripara.Ini
 
    for (j in 1:100) {    
-
-        resultBj <- gSlcMCMC(names.routine,datainfor, BIncSize,
+        
+        resultBj <- gSlcMCMC(routindex,datainfor, BIncSize,
                             priparaB)
         priparaB <- resultBj$paratoSave  
         if (j == 1) {
@@ -362,7 +355,7 @@ gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control
    text(0.5,0.7,"Percentage of iterations completed is",cex=1,col="blue")
    for (k in 1:100) {
        
-        resultIk <- gSlcMCMC(names.routine,datainfor, IteIncSize + 1,
+        resultIk <- gSlcMCMC(routindex,datainfor, IteIncSize + 1,
                             priparaI)
         MCMCIk <- resultIk$MCMCres
         nuIk <- array(MCMCIk$nu[,2:(IteIncSize+1)],dim = c(nc.C, IteIncSize))
@@ -392,8 +385,7 @@ gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control
        sigsq.u <- matrix(sigsq.u[col(sigsq.u)%% nThin == 0], nrow = nrow(sigsq.u), 
                          ncol = ncol(sigsq.u) %/% nThin)
    }
-
-
+    
    ## Build the default matrix of edfMCMC,
    ## the below part is to compute edfMCMC.
 
@@ -468,6 +460,7 @@ gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control
       }
    }
 
+     
    ## Set default value of matrix nu.linear.beta
    nu.linear.beta <- array(dim = c(0,ncol(nu.beta)))
 

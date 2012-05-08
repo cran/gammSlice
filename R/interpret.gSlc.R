@@ -3,7 +3,6 @@
 
 interpret.gSlc <- function(gf){ 
     
-   library(mgcv)
    p.env <- environment(gf) # enviroment of formula
    tf <- terms.formula(gf,specials= "s") # specials attribute indicates which terms are smooth and which term is random factor.
   

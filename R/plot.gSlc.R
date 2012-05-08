@@ -63,8 +63,6 @@ function(x, pages = 0,responseScale = FALSE, xlab = NULL, ylab = NULL, main = NU
    
    if (num.smooth.funcs > 0) {
      
-     
-    
      for (i in 1 : num.smooth.funcs) {
         
        knots.i <- seq(0,1,length=(num.knots[i]+2))[-c(1,(num.knots[i]+2))]
@@ -87,7 +85,8 @@ function(x, pages = 0,responseScale = FALSE, xlab = NULL, ylab = NULL, main = NU
      
        
      num.plots <- num.smooth.funcs
-       
+            
+
      if (pages < 0) pages <- 0
      if (pages > num.plots) pages <- num.plots
        
@@ -99,8 +98,9 @@ function(x, pages = 0,responseScale = FALSE, xlab = NULL, ylab = NULL, main = NU
            par(mfrow = c(num.row, num.col))
      }
        
-     if ((pages == 0) && (prod(par("mfrow")) <= num.plots)) {
-           ppp <- prod(par("mfrow"))
+     if (pages == 0) {
+           if (prod(par("mfrow")) < 1) {ppp <- 1}
+           else  {ppp <- prod(par("mfrow")) }
      }
        
      for (i in 1: num.smooth.funcs) {

@@ -1,5 +1,5 @@
 gSlcMCMC <-
-function(names.routine, datainfor, nloops, pripara)
+function(routindex,datainfor, nloops, pripara)
 { 
    ## Get information from data
    y <- datainfor$y
@@ -30,7 +30,8 @@ function(names.routine, datainfor, nloops, pripara)
    Cnu.rest <- rep(0,num.obs)
    
 
-   timeTaken <- system.time(gibbs.out <- .Fortran(names.routine, as.double(y),
+   timeTaken <- system.time(gibbs.out <- .Fortran("gammSlice",
+                         routindex,as.double(y),
                          as.double(C.mat), as.double(CTy),    
                          as.integer(num.obs), as.integer(nc.C), 
                          as.integer(nc.X),as.integer(num.gps), 

@@ -1,4 +1,4 @@
-useDynLib(gammSlice,  .registration = TRUE, .fixes = "F_")
+useDynLib(gammSlice, .registration = TRUE, .fixes = "F_")
 
 export(gSlc,plot.gSlc,summMCMC,summary.gSlc,gSlc.control,gSlcSim,gSlcMCMC)
 

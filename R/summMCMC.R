@@ -6,7 +6,7 @@ function(xList,EPSfileName,PDFfileName,plotInd=1,parNames,
                      BGRlogTransf,BGRlogitTransf,KDExlim,KDEvertLine=TRUE,
                      KDEvertLineCol="black",addTruthToKDE=NULL)
 {
-   library(KernSmooth)
+   
    options(warn=-1)
    x <- lapply(xList,as.matrix)
    num.par <- ncol(x[[plotInd]])

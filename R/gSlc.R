@@ -4,7 +4,7 @@
 # slice sampling. The model is two smooth
 # functions with an binary offset.
 
-# Last changed: 13 MAR 2012
+# Last changed: 06 JAN 2015
 
 # Set flag for type of likelihood
 
@@ -40,12 +40,15 @@ gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control
 
    # Find the number of smooth functions and linear functions
 
-   num.smooth.funcs <- length(formula.infor$svar)
-   num.linear.funcs <- length(formula.infor$lvar)
-   num.vars <- num.smooth.funcs + num.linear.funcs
    vars.pred <- formula.infor$varlist
+   vars.lin <- formula.infor$lvar
+   vars.smth <- formula.infor$svar
    var.resp <- formula.infor$response   
    num.basis <- formula.infor$nbas
+   
+   num.smooth.funcs <- length(vars.smth)
+   num.linear.funcs <- length(vars.lin)
+   num.vars <- length(vars.pred)
    
   
    # Find the random factor name
@@ -72,16 +75,33 @@ gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control
        if (num.vars > 0) {
          x.data <- array(dim=c(length(y),0))
 
-         for ( i in 1: num.vars ) {
-            if(exists(vars.pred[i]) == TRUE) {
-              temp.obj.i <- array(get(vars.pred[i]),dim = c(length(y),1))
-              x.data <- cbind(x.data, temp.obj.i)
-           } else {stop("There is missing predictor.")}
+         for (i in 1: num.vars ) {
+              if(exists(vars.pred[i]) == TRUE) {
+                 temp.obj.i <- array(get(vars.pred[i]),dim = c(length(y),1))
+              	 
+                 if (is.character(temp.obj.i)) {
+              
+                     x.cate <- array(NA,dim = c(length(y),0))
+
+                     names.catevars <- sort(unique(temp.obj.i))
+                    
+                     for(j in 2:length(names.catevars)) {
+                        
+                         x.cate <- cbind(x.cate, as.numeric(temp.obj.i == names.catevars[j]))
+                         vars.lin <- c(vars.lin,paste("(",vars.pred[i],")",names.catevars[j]  ,"Vs",names.catevars[1],sep = ""))
+
+                     }
+                     x.data <- cbind(x.data, x.cate)
+                     vars.lin <- vars.lin[which(vars.lin != vars.pred[i])]
+
+                 } else {x.data <- cbind(x.data,temp.obj.i) }
+
+               
+              } else {stop("There is missing predictor.")}
          }
-         colnames(x.data) <- vars.pred
+         colnames(x.data) <- c(vars.lin,vars.smth)
          data <- cbind(y,x.data)
-        } 
-       else {data <- cbind(y)}
+       } else {data <- cbind(y)}
 
        if (random.factor) {
            if (exists(random.vars) == TRUE) {
@@ -92,6 +112,17 @@ gSlc <- function(formula,data = NULL,random = NULL,family,control = gSlc.control
        }
   
    } 
+
+   # Update variables list in case of category variables
+   	
+   
+   vars.lin  -> formula.infor$lvar
+   vars.smth -> formula.infor$svar
+   c(vars.lin,vars.smth) -> vars.pred -> formula.infor$varlist
+   
+   num.smooth.funcs <- length(vars.smth)
+   num.linear.funcs <- length(vars.lin)
+   num.vars <- length(vars.pred)
 
    if (!is.null(data)) { 
      incl.pred  <- setequal(intersect(vars.pred, colnames(data)), formula.infor$varlist)

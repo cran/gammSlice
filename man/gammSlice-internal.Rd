@@ -1,5 +1,5 @@
 \name{gammSlice-internal}
-\title{Internal \code{gammSlice} functions.}
+\title{Internal \code{gammSlice} functions}
 \alias{interpret.gSlc}
 \alias{summMCMC}
 \alias{gSlcMCMC}

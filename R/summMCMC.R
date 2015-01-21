@@ -69,7 +69,7 @@ function(xList,EPSfileName,PDFfileName,plotInd=1,parNames,
 
    for (j in 1:num.par)
    {  
-      if (j %% 15 == 0) {x11()}
+      if (j %% 15 == 0) {dev.new()}
  
       # Write the variable name
 

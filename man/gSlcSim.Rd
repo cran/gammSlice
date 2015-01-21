@@ -3,7 +3,7 @@
 \alias{gSlcSim}
 %
 \title{
-Simulate data from a generalized additive mixed model.
+Simulate data from a generalized additive mixed model
 }
 \description{Six types of generalized additive mixed model
   structures can be simulated. The user has the option

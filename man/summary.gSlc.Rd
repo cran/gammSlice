@@ -3,7 +3,7 @@
 \alias{summary.gSlc}
 %
 \title{Summary of the generalized additive mixed model fit
-       produced by \code{gSlc}.}
+       produced by \code{gSlc}}
 %
 \description{A graphical table showing,for key model parameters,
   the Markov chain Monte Carlo (MCMC)

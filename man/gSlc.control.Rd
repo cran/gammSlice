@@ -2,7 +2,7 @@
 %
 \alias{gSlc.control}
 %
-\title{Modification of the \code{gSlc} defaults.}
+\title{Modification of the \code{gSlc} defaults}
 %
 \description{The fitting of a generalized additive mixed model
   in \code{gammSlice} via the core function \code{gSlc} entails
@@ -11,7 +11,8 @@
   options.}
 %
 \usage{
-gSlc.control(nBurnin = 5000, nIter = 5000,  nThin = 5, fixedEffPriorVar = 1e10, sdPriorScale = 1e5)
+gSlc.control(nBurnin = 5000,nIter = 5000,nThin = 5,fixedEffPriorVar = 1e10,
+                                                   sdPriorScale = 1e5)
 }
 %
 \arguments{

@@ -2,7 +2,7 @@
 %
 \alias{plot.gSlc}
 %
-\title{Plot smooth function components of \code{gSlc} fits.}
+\title{Plot smooth function components of \code{gSlc} fits}
 %
 \description{Smooth function components of generalized
   additive mixed model fits obtained via \code{gSlc}

@@ -1,10 +1,16 @@
-### This code is copied partly and then modified from the function
-### interpret.gam of the package mgcv (Simon Wood).
+########## R function: readFormula ##########
 
-interpret.gSlc <- function(gf){ 
-    
+# For reading a gSlc() formula. (This code is copied partly 
+# and then modified from the function interpret.gam of the 
+# package mgcv.
+
+# Last changed: 12 MAY 2018
+
+readFormula <- function(gf)
+{ 
    p.env <- environment(gf) # enviroment of formula
-   tf <- terms.formula(gf,specials= "s") # specials attribute indicates which terms are smooth and which term is random factor.
+   tf <- terms.formula(gf,specials= "s") # specials attribute indicates which 
+                                         # terms are smooth and which term is random factor.
   
    terms <- attr(tf,"term.labels") # labels of the model terms
    nt <- length(terms) # how many terms?
@@ -53,18 +59,21 @@ interpret.gSlc <- function(gf){
         } 
       }
   
-  if (length(av)) {
-   
-        pred.formula <- as.formula(paste("~", paste(av,collapse = "+")))
-        pav <- all.vars(pred.formula)
-        pred.formula <- reformulate(pav)
-
-  } else {pred.formula <- ~1; pav <- rep("",0)}
+  if (length(av)) 
+  {
+     pred.formula <- as.formula(paste("~", paste(av,collapse = "+")))
+     pav <- all.vars(pred.formula)
+     pred.formula <- reformulate(pav)
+  } 
+  else {pred.formula <- ~1; pav <- rep("",0)}
   
   linear.var <- pav
   
   var.list <- c(linear.var, smooth.var)
-  ret<-list(smooth.spec=smooth.spec, svar =smooth.var, lvar=linear.var, varlist = var.list, response = response,nbas = num.basis)
-  class(ret)<-"gamm.formula"
-  return(ret)
+  ans <- list(smooth.spec=smooth.spec, svar =smooth.var, lvar=linear.var,
+              varlist = var.list, response = response,nbas = num.basis)
+ 
+  return(ans)
 }
+
+############ End of readFormula ############

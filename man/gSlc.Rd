@@ -54,7 +54,7 @@ An object of \code{class} \code{"gScl"}. The functions \code{summary()} and \cod
 
   Pham, T. and Wand, M.P. (2018).\cr
   Generalized additive mixed model analysis via \code{gammSlice}.\cr
-  \emph{Australian and New Zealand Journal of Statistics}, in press.
+  \emph{Australian and New Zealand Journal of Statistics}, \bold{60}, 279-300.
 
   Zhao, Y., Staudenmayer, J., Coull, B.A. and Wand, M.P. (2003).\cr
   General design Bayesian generalized linear mixed models.\cr

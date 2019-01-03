@@ -1,4 +1,4 @@
-b0339ec94b36941aa4aa343f40c8118d *DESCRIPTION
+00c3a524dd451911462494b151a97f9b *DESCRIPTION
 d873c999063b5df4f1e73f6293fc1fe2 *NAMESPACE
 23c914ef0b9db54aa190d502ba4b3295 *R/BGRinterval.r
 809b3aec9e3bed1da727779826f8fb8d *R/ZOSull.r
@@ -10,15 +10,15 @@ f37ca22904832638c1b9a48a65dc6013 *R/summMCMC.r
 250680db077785c6cd5c772085883a4c *R/summary.gSlc.r
 04199c9f34c060c2ca797d0a47032ad2 *data/indonRespir.txt.gz
 c9fb8df0e2cd567883eb5bd137198f6a *data/toenail.txt.gz
-45adc73a73a58914e8bb1abf4eb74308 *man/gSlc.Rd
-a361e450c9c2713a315acdfee18302f6 *man/gSlc.control.Rd
+afa12972c1ed5aafa25e808f1b68ca45 *man/gSlc.Rd
+caa1a0917a3058a7047c662db1058d5c *man/gSlc.control.Rd
 bf0a9b97b34e1f72e490288358850b60 *man/indonRespir.Rd
-d85668187f11c5726b79bc833ba0d7b4 *man/plot.gSlc.Rd
-524003b688f10ce3fc515da0651874b9 *man/summary.gSlc.Rd
+03206d0775beafbc72654d195e4ad121 *man/plot.gSlc.Rd
+b0cb6d4050ddf1816903cf1f872dc9ef *man/summary.gSlc.Rd
 67af5e683cb682c85030bc5b6bed967c *man/toenail.Rd
 fe3d107a8374070f10cb270d2d34a7bd *src/Makevars
 7a8b06c80f129dcc35aca27b22698c35 *src/frgamma_helper.c
 01fa65bd6bbd2e0c34c5e37cd47278bd *src/frunif_helper.c
 4afd4b83a5aa09b8b551702dbc90dc67 *src/gslcmc.f
-0567b11b08d1f086e1ffa78fdff46b63 *src/init.c
+11041ebda14d236ec79285370d750ebf *src/init.c
 83e4bba4a0c73604b40b7f597b44fa47 *src/lgunds.f

@@ -39,7 +39,7 @@
 }
 \details{For each smooth function component of the generalized additive mixed model specified in the call to \code{gSlc} the pointwise posterior mean is plotted along with a shaded polygon corresponding to pointwise 95\% credible sets.
 }
-\references{Pham, T. and Wand, M.P. (2018). Generalized additive mixed model analysis via \code{gammSlice}. \emph{Australian and New Zealand Journal of Statistics}, in press.
+\references{Pham, T. and Wand, M.P. (2018). Generalized additive mixed model analysis via \code{gammSlice}. \emph{Australian and New Zealand Journal of Statistics}, \bold{60}, 279-300.
 }
 \author{
 Tung Pham \email{tungstats@gmail.com} and Matt Wand \email{matt.wand@uts.edu.au}.

@@ -30,7 +30,7 @@ gSlc.control(nBurn=5000,nKept=5000,nThin=5,fixedEffPriorVar=1e10,
 }
 }
 \references{
-Pham, T. and Wand, M.P. (2018). Generalized additive mixed model analysis via \code{gammSlice}. \emph{Australian and New Zealand Journal of Statistics}, in press.
+Pham, T. and Wand, M.P. (2018). Generalized additive mixed model analysis via \code{gammSlice}. \emph{Australian and New Zealand Journal of Statistics}, \bold{60}, 279-300.
 
 Zhao, Y., Staudenmayer, J., Coull, B.A. and Wand, M.P. (2003). General design Bayesian generalized linear mixed models. \emph{Statistical Science}, \bold{21}, 35-51.
 }

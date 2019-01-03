@@ -24,7 +24,7 @@
    6. posterior mean and 95\% credible interval.
  }
 \references{
-Pham, T.H. and Wand, M.P. (2018). Generalized additive mixed model analysis via \code{gammSlice}. \emph{Australian and New Zealand Journal of Statistics}, in press. 
+Pham, T.H. and Wand, M.P. (2018). Generalized additive mixed model analysis via \code{gammSlice}. \emph{Australian and New Zealand Journal of Statistics}, \bold{60}, 279-300. 
 }
 \author{
 Tung Pham \email{tungstats@gmail.com} and Matt Wand \email{matt.wand@uts.edu.au}. 

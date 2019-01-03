@@ -1,6 +1,6 @@
 /*
  *  Part of R package gammSlice
- *  Copyright (C) 2018  T.H. Pham and M.P. Wand
+ *  Copyright (C) 2018 T.H. Pham and M.P. Wand
  *
  *  Unlimited use and distribution.
  */
